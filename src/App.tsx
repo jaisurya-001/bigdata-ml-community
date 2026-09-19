@@ -162,7 +162,7 @@ const HackathonOverview = () => (
             <li><strong>Team Size:</strong> {hackathonInfo.teamSize}</li>
           </ul>
           <div style={{ marginTop: '2rem' }}>
-            <a href="#" className="btn btn-primary" style={{ width: '100%' }}>{hackathonInfo.registration}</a>
+            <a href="https://docs.google.com/spreadsheets/d/1Fzvez04hwR-QEzKGUH3e2Fb5DO31K1zFtJnsNTnbc_Q/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%' }}>{hackathonInfo.registration}</a>
           </div>
         </div>
 

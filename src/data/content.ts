@@ -34,13 +34,13 @@ export const communityInfo = {
 
 export const hackathonInfo = {
   title: "Community Hackathon 2026",
-  venue: "[PLACEHOLDER - Venue]",
-  date: "[PLACEHOLDER - Date]",
-  time: "[PLACEHOLDER - Time]",
-  duration: "[PLACEHOLDER - Duration]",
-  teamSize: "[PLACEHOLDER - Team Size]",
-  registration: "[PLACEHOLDER - Registration Link/Details]",
-  theme: "Big Data Analytics & Machine Learning",
+  venue: "LC 1 and 3rd Floor",
+  date: "22/09/2026",
+  time: "8:45 AM to 4:20 PM",
+  duration: "1 Day",
+  teamSize: "3",
+  registration: "Registration / Details",
+  theme: "DataXelerate",
   about: "The hackathon challenges students to identify a real-world problem and develop a technology-driven prototype using appropriate data, analytics, machine learning, AI, or related technologies.",
   srs: [
     {
