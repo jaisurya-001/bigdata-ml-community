@@ -1,0 +1,122 @@
+[
+  {
+    "id": "PS-01",
+    "title": "Smart Student Performance & Placement Prediction System",
+    "domain": "Smart Education & Student Analytics",
+    "description": "Teams will receive a relevant dataset and develop a working prototype that includes: Data Preprocessing: Cleaning, transformation, and feature selection. Data Analytics: Identify meaningful patterns and relationships between academic and skill parameters. Machine Learning: Build and evaluate a placement-readiness prediction model. Dashboard: Display performance, skill gaps, predictions, and insights. Recommendations: Generate suitable improvement suggestions based on analysis.",
+    "requirements": [
+      "Identify key factors affecting placement readiness.",
+      "Predict placement readiness levels.",
+      "Identify individual skill gaps.",
+      "Generate data-driven recommendations.",
+      "Present insights through a dashboard/visualizations."
+    ],
+    "pipeline": "Raw Data → Preprocessing → Analytics → ML Prediction → Skill Gap → Recommendation",
+    "expected_outcomes": [
+      { "component": "Dataset", "output": "Cleaned & processed data" },
+      { "component": "Analytics", "output": "Key insights & patterns" },
+      { "component": "ML Model", "output": "Placement-readiness prediction" },
+      { "component": "Evaluation", "output": "Suitable ML performance metrics" },
+      { "component": "Dashboard", "output": "Visual insights & predictions" },
+      { "component": "Recommendation", "output": "Data-driven skill-gap suggestions" },
+      { "component": "Source Code", "output": "Complete executable solution" },
+      { "component": "Presentation", "output": "Solution demonstration" }
+    ]
+  },
+  {
+    "id": "PS-02",
+    "title": "Student Dropout Risk Prediction & Early Intervention System",
+    "domain": "Smart Education & Student Analytics",
+    "description": "Teams will receive a relevant dataset and develop a working prototype that includes: Data Preprocessing: Cleaning, transformation, and feature selection. Data Analytics: Identify academic and behavioural patterns associated with dropout. Machine Learning: Build and evaluate a dropout-risk classification model. Dashboard: Display risk levels, affected students, and contributing factors. Recommendations: Generate early intervention and counselling suggestions.",
+    "requirements": [
+      "Analyze attendance, academic and behavioural trends.",
+      "Identify key factors contributing to dropout risk.",
+      "Predict dropout risk levels for each student.",
+      "Highlight students requiring immediate counselling.",
+      "Present risk insights through a dashboard/visualizations."
+    ],
+    "pipeline": "Raw Data → Preprocessing → Risk Analytics → ML Prediction → Alert → Intervention",
+    "expected_outcomes": [
+      { "component": "Dataset", "output": "Cleaned & processed data" },
+      { "component": "Analytics", "output": "Dropout pattern insights" },
+      { "component": "ML Model", "output": "Dropout risk prediction" },
+      { "component": "Evaluation", "output": "Suitable ML performance metrics" },
+      { "component": "Dashboard", "output": "Risk monitoring dashboard" },
+      { "component": "Recommendation", "output": "Intervention suggestions" },
+      { "component": "Source Code", "output": "Complete executable solution" },
+      { "component": "Presentation", "output": "Solution demonstration" }
+    ]
+  },
+  {
+    "id": "PS-03",
+    "title": "Student Attendance Analytics & Absenteeism Prediction System",
+    "domain": "Smart Education & Student Analytics",
+    "description": "Teams will receive a relevant dataset and develop a working prototype that includes: Data Preprocessing: Cleaning, transformation, and feature selection. Data Analytics: Identify absenteeism trends across subjects, periods, and student groups. Machine Learning: Build and evaluate an attendance shortage prediction model. Dashboard: Display attendance trends, defaulter lists, and predictions. Recommendations: Generate corrective actions for students falling short of attendance.",
+    "requirements": [
+      "Analyze subject-wise and semester-wise attendance patterns.",
+      "Identify chronic absenteeism and irregular trends.",
+      "Predict future attendance shortage for students.",
+      "Correlate attendance with academic performance.",
+      "Present attendance insights through a dashboard."
+    ],
+    "pipeline": "Raw Data → Preprocessing → Attendance Analytics → ML Prediction → Alert → Recommendation",
+    "expected_outcomes": [
+      { "component": "Dataset", "output": "Cleaned & processed data" },
+      { "component": "Analytics", "output": "Attendance trend insights" },
+      { "component": "ML Model", "output": "Shortage prediction" },
+      { "component": "Evaluation", "output": "Suitable ML performance metrics" },
+      { "component": "Dashboard", "output": "Attendance dashboard" },
+      { "component": "Recommendation", "output": "Corrective action suggestions" },
+      { "component": "Source Code", "output": "Complete executable solution" },
+      { "component": "Presentation", "output": "Solution demonstration" }
+    ]
+  },
+  {
+    "id": "PS-04",
+    "title": "Smart Course & Elective Recommendation System",
+    "domain": "Smart Education & Student Analytics",
+    "description": "Teams will receive a relevant dataset and develop a working prototype that includes: Data Preprocessing: Cleaning, transformation, and feature selection. Data Analytics: Identify subject relationships and student interest patterns. Machine Learning: Build and evaluate an elective performance prediction model. Dashboard: Display student strengths, predicted scores, and suggested courses. Recommendations: Generate personalised elective and course recommendations.",
+    "requirements": [
+      "Analyze subject-wise strengths and weaknesses of students.",
+      "Identify relationships between prior subjects and elective performance.",
+      "Predict expected performance in available electives.",
+      "Recommend the most suitable electives for each student.",
+      "Present recommendations through a dashboard."
+    ],
+    "pipeline": "Raw Data → Preprocessing → Analytics → ML Prediction → Matching → Recommendation",
+    "expected_outcomes": [
+      { "component": "Dataset", "output": "Cleaned & processed data" },
+      { "component": "Analytics", "output": "Subject strength insights" },
+      { "component": "ML Model", "output": "Elective performance prediction" },
+      { "component": "Evaluation", "output": "Suitable ML performance metrics" },
+      { "component": "Dashboard", "output": "Recommendation dashboard" },
+      { "component": "Recommendation", "output": "Personalised course suggestions" },
+      { "component": "Source Code", "output": "Complete executable solution" },
+      { "component": "Presentation", "output": "Solution demonstration" }
+    ]
+  },
+  {
+    "id": "PS-11",
+    "title": "Diabetes Risk Prediction & Patient Analytics System",
+    "domain": "Healthcare & Wellness Analytics",
+    "description": "Teams will receive a relevant dataset and develop a working prototype that includes: Data Preprocessing: Cleaning, transformation, and feature selection. Data Analytics: Identify relationships between clinical parameters and diabetes risk. Machine Learning: Build and evaluate a diabetes risk prediction model. Dashboard: Display risk levels, patient groups, and key indicators. Recommendations: Generate lifestyle and preventive care suggestions.",
+    "requirements": [
+      "Analyze clinical and lifestyle parameters of patients.",
+      "Identify key factors contributing to diabetes risk.",
+      "Predict diabetes risk levels for individuals.",
+      "Segment patients into low, moderate, and high risk groups.",
+      "Present health insights through a dashboard."
+    ],
+    "pipeline": "Raw Data → Preprocessing → Health Analytics → ML Prediction → Risk Grouping → Recommendation",
+    "expected_outcomes": [
+      { "component": "Dataset", "output": "Cleaned & processed data" },
+      { "component": "Analytics", "output": "Health risk insights" },
+      { "component": "ML Model", "output": "Diabetes risk prediction" },
+      { "component": "Evaluation", "output": "Suitable ML performance metrics" },
+      { "component": "Dashboard", "output": "Patient risk dashboard" },
+      { "component": "Recommendation", "output": "Preventive care suggestions" },
+      { "component": "Source Code", "output": "Complete executable solution" },
+      { "component": "Presentation", "output": "Solution demonstration" }
+    ]
+  }
+]

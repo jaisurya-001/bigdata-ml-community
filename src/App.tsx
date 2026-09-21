@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
-import { Menu, X, Database, Network, Cpu, Activity, Layers, ArrowRight } from 'lucide-react';
+import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom';
+import { Menu, X, Database, Network, Cpu, Activity, Layers, ArrowRight, Shield, UserCheck, LogOut } from 'lucide-react';
 import { communityInfo, hackathonInfo } from './data/content';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import { LoginModal } from './components/LoginModal';
+import { AdminPortal } from './pages/AdminPortal';
+import { LeaderPortal } from './pages/LeaderPortal';
 import './index.css';
 
 // --- COMPONENTS ---
 
-const Navbar = () => {
+const Navbar = ({ onLoginClick }: { onLoginClick: () => void }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, logout } = useAuth();
   const links = ['Home', 'About', 'Aim', 'Goals', 'Hackathon', 'SRS', 'Evaluation', 'Timeline'];
 
   return (
     <nav className="navbar">
       <div className="container nav-container">
-        <div style={{ fontWeight: 700, color: 'var(--primary-dark)', fontSize: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+        <div style={{ fontWeight: 700, color: 'var(--primary-dark)', fontSize: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem', whiteSpace: 'nowrap' }}>
           <Database size={24} color="var(--primary)" />
           <span>Big Data & ML</span>
         </div>
@@ -23,7 +29,49 @@ const Navbar = () => {
               {link}
             </a>
           ))}
-          <a href="#hackathon" className="btn btn-primary" style={{ padding: '0.5rem 1rem' }}>View Hackathon</a>
+          
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginLeft: '0.25rem' }}>
+            {user?.role === 'ADMIN' && (
+              <>
+                <Link 
+                  to="/admin" 
+                  className="btn btn-primary" 
+                  style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem', display: 'inline-flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap', fontWeight: 600 }}
+                >
+                  <Shield size={14} /> Admin Portal
+                </Link>
+                <Link 
+                  to="/leader" 
+                  className="btn btn-outline" 
+                  style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem', display: 'inline-flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap', fontWeight: 600 }}
+                >
+                  <UserCheck size={14} /> Leader Portal
+                </Link>
+              </>
+            )}
+
+            {user?.role === 'LEADER' && (
+              <Link 
+                to="/leader" 
+                className="btn btn-primary" 
+                style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem', display: 'inline-flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap', fontWeight: 600 }}
+              >
+                <UserCheck size={14} /> Leader Portal
+              </Link>
+            )}
+
+            {user ? (
+              <button 
+                onClick={logout} 
+                className="btn btn-outline" 
+                style={{ padding: '0.4rem 0.75rem', fontSize: '0.82rem', display: 'inline-flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap', borderColor: 'var(--border)', color: 'var(--text-secondary)' }}
+              >
+                <LogOut size={14} /> Logout
+              </button>
+            ) : (
+              <button onClick={onLoginClick} className="btn btn-primary" style={{ padding: '0.45rem 1rem', fontSize: '0.85rem', whiteSpace: 'nowrap' }}>LOGIN</button>
+            )}
+          </div>
         </div>
 
         <button className="mobile-menu-btn" onClick={() => setIsOpen(!isOpen)}>
@@ -43,6 +91,30 @@ const Navbar = () => {
               {link}
             </a>
           ))}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: '0.5rem' }}>
+            {user?.role === 'ADMIN' && (
+              <>
+                <Link to="/admin" onClick={() => setIsOpen(false)} className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+                  <Shield size={16} /> Admin Portal
+                </Link>
+                <Link to="/leader" onClick={() => setIsOpen(false)} className="btn btn-outline" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+                  <UserCheck size={16} /> Leader Portal
+                </Link>
+              </>
+            )}
+            {user?.role === 'LEADER' && (
+              <Link to="/leader" onClick={() => setIsOpen(false)} className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+                <UserCheck size={16} /> Leader Portal
+              </Link>
+            )}
+            {user ? (
+              <button onClick={() => { setIsOpen(false); logout(); }} className="btn btn-outline" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+                <LogOut size={16} /> Logout
+              </button>
+            ) : (
+              <button onClick={() => { setIsOpen(false); onLoginClick(); }} className="btn btn-primary">LOGIN</button>
+            )}
+          </div>
         </div>
       )}
     </nav>
@@ -350,10 +422,19 @@ const Footer = () => (
 
 // --- MAIN APP COMPONENT ---
 
-function App() {
+function PublicLanding() {
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const { user, logout } = useAuth();
+
   return (
     <div>
-      <Navbar />
+      {user?.role === 'UNAUTHORIZED' && (
+        <div style={{ backgroundColor: '#fef2f2', borderBottom: '1px solid #f87171', color: '#991b1b', padding: '0.75rem 1rem', textAlign: 'center', fontWeight: 500, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+          <span>⚠️ Access Denied: <strong>{user.email}</strong> is not authorized to access the Hackathon Portal. Please log in with an authorized account.</span>
+          <button onClick={logout} className="btn" style={{ padding: '0.25rem 0.75rem', backgroundColor: '#991b1b', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '0.85rem' }}>Sign Out</button>
+        </div>
+      )}
+      <Navbar onLoginClick={() => setIsLoginOpen(true)} />
       <Hero />
       <About />
       <Aim />
@@ -365,8 +446,25 @@ function App() {
       <Requirements />
       <CTA />
       <Footer />
+      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </div>
   );
 }
 
+function App() {
+  return (
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<PublicLanding />} />
+          <Route path="/admin" element={<AdminPortal />} />
+          <Route path="/leader" element={<LeaderPortal />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
+  );
+}
+
 export default App;
+
